@@ -1,0 +1,39 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[pagesize, twoside=off, bibliography=totoc, fontsize=12pt, a4paper]{scrartcl}
+\input{preamble/packages}
+\input{preamble/redac}
+\input{preamble/math_basics}
+\input{preamble/math_mine}
+%\input{preamble/draw}
+%\input{preamble/jdoc}
+
+\title{Risk Attitudes in Public Transport Route Choice}
+\author{Olivier Cailloux}
+\author{Jérôme Lang}
+\affil{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
+  \href{mailto:olivier.cailloux@dauphine.psl.eu}{olivier.cailloux@dauphine.psl.eu}
+}
+\hypersetup{
+  pdfsubject={decision theory},
+  pdfkeywords={utility},
+}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+We propose an internship broadly aimed at studying recommender systems of public transportation trips taking into account risk attitudes of passengers.
+
+Numerous applications (such as web applications or mobile phone applications) exist that help someone plan her next trip using city public transportation system. Such systems will propose “best” routes accross (possibly multiple and connecting) subways, busses, trams and pedestrian modes of transports. They generally aim at minimizing total travel time but can take other factors into account such as a preference for busses over subways. However, to the best of our knowledge, few or no such systems take a decision theoretic side approach towards the attitude of the passenger towards risks of delays. Such a system would come handy, especially if able to take circumstances into account: someone may be more or less ready to sacrifice average performance for reduced risks depending on the importance to reach before a given deadline, for example. This internship will study the design of a system that would consider this aspect, using theoretic modelling and possibly experimental data.
+
+It makes sense to start with the classical approach towards decision making facing risks \citep{keeney_decisions_1993}, as generally adopted in decision theory. We postulate that the decision maker (here, a person asking for a trip) acts so as to maximize a utility function that associates a number to a possible trip. The trip is described as an uncertain outcome, depending on the state of the world, each state associated with a given probability. Each outcome is associated to possibly several criteria that describes the merits of the outcome on various aspects. For example, trip 1 (taking a subway then a bus) is associated to a 80\% chance of reaching within 40 minutes, and 20\% chance of reaching within 80 minutes, both with medium agreeableness; whereas trip 2 (subway then walk) is associated to 90\% chance of reaching within 50 minutes, and 10\% chance of reaching within 70 minutes, both with high agreeableness.
+
+The decision theoretic approach models the attitude towards risk of the decision maker by encoding in the utility function a more or less important penalty associated to supplementary delays, thereby permitting to take into consideration more than just the expected delay. For example, reaching within 40 minutes instead of 50 may be considered slightly better, but reaching within 60 minutes instead of 50 might be terribly worst, if the passenger has to take a train in 58 minutes.
+
+Although the general area of attitudes towards public transportation and recommender systems is heavily studied, a quick look at the related literature thanks to an AI search (\hrefblue{https://app.undermind.ai/report/95d103e0b944941c22070039dee109e60c51262424367a4d35b94a9fae6363d6}{Undermind}, joined to this introduction) did not reveal approaches that consider public trip recommendations based on a decision theoretic preference model as proposed here.
+
+\bibliography{survey}
+
+\end{document}
+
